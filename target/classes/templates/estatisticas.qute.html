@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" href="/css/login.css">
 
-        <!-- <script src="/js/principal.js"></script> -->
+        <!-- <script src="/js/login.js" type="application/javascript"></script> -->
     </head>
     <body>
         <header id="header" class="header d-flex align-items-center fixed-top">
@@ -62,7 +62,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
@@ -81,24 +81,60 @@
 
 
         <section style="padding-top: 120px;">
-
-            <div class="col-md-8 mx-auto text-center" style="padding-top: 200px">
-
-                <img src="/images/Logo.png" alt="logo" class="d-none d-sm-block mx-auto mb-3" width="200" height="165"><p class="lead mb-4">
-                <h1 class="mb-3 fw-semibold lh-1">Bem-vindo(a) ao Scorefy!</h1>
-
-                    Crie partidas, controle o placar e o tempo. Partice de partidas e acompanhe estatísticas sobre o seu desempenho.
-                </p>
-                <div class="d-flex flex-column flex-lg-row align-items-md-stretch justify-content-md-center gap-3 mb-4">
-                    <div class="d-inline-block v-align-middle fs-5">
-                        <a href="estatisticas" type="button" class="btn btn-primary btn-lg" style="background-color: #fd7e14;border: white;">Ver estatísticas</a>
-                        <a href="partida" type="button" class="btn btn-primary btn-lg" style="background-color: #fd7e14;border: white;">Criar partida</a>
+            <div id="estatisticas" class="col-md-8 mx-auto text-center" style="padding-top: 100px">
+                <h1 class="mb-3 fw-semibold lh-1">Estatísticas</h1>
+                <br><br>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Partidas jogadas</h5>
+                                <h1 id="partidas-jogadas">10</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Vitórias</h5>
+                                <h1 id="vitorias">10</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Derrotas</h5>
+                                <h1 id="derrotas">10</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Total de cestas</h5>
+                                <h1 id="total-cestas">10</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Cestas de 2 pontos</h5>
+                                <h1 id="cestas-2-pontos">10</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Cestas de 3 pontos</h5>
+                                <h1 id="cestas-3-pontos">10</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
-        <script src="/js/principal.js"></script>
-        <!-- <script src="/js/principal.js"></script> -->
     </body>
 </html>

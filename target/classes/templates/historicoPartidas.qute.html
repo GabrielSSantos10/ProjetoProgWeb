@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -17,8 +17,6 @@
                 integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="/css/login.css">
-
-        <!-- <script src="/js/principal.js"></script> -->
     </head>
     <body>
         <header id="header" class="header d-flex align-items-center fixed-top">
@@ -62,7 +60,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
@@ -73,32 +71,47 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                        <a href="#" class="btn btn-primary">Sim</a>
+                        <a href="/" class="btn btn-primary">Sim</a>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <section style="padding-top: 120px;">
-
-            <div class="col-md-8 mx-auto text-center" style="padding-top: 200px">
-
-                <img src="/images/Logo.png" alt="logo" class="d-none d-sm-block mx-auto mb-3" width="200" height="165"><p class="lead mb-4">
-                <h1 class="mb-3 fw-semibold lh-1">Bem-vindo(a) ao Scorefy!</h1>
-
-                    Crie partidas, controle o placar e o tempo. Partice de partidas e acompanhe estatísticas sobre o seu desempenho.
-                </p>
-                <div class="d-flex flex-column flex-lg-row align-items-md-stretch justify-content-md-center gap-3 mb-4">
-                    <div class="d-inline-block v-align-middle fs-5">
-                        <a href="estatisticas" type="button" class="btn btn-primary btn-lg" style="background-color: #fd7e14;border: white;">Ver estatísticas</a>
-                        <a href="partida" type="button" class="btn btn-primary btn-lg" style="background-color: #fd7e14;border: white;">Criar partida</a>
-                    </div>
+        <section style="padding-top: 100px;">
+            <div id="historico-partidas" class="col-md-8 mx-auto text-center" style="padding-top: 200px">
+                <h1 class="mb-3 fw-semibold lh-1">Histórico de partidas</h1>
+                <div style="text-align: right">
+                    <!-- Não existe essa tela -->
+                    <a id="criar-nova-partida" href="/criarPartida" class="btn btn-primary active" role="button">Criar nova partida</a>
                 </div>
-
+                <br>
+                <div style="text-align: left">
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Vencedor</th>
+                                <th scope="col" colspan="2">Time 1</th>
+                                <th scope="col" colspan="2">Time 2</th>
+                                <th scope="col">Duração</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>18/06/2023 - 15:30</td>
+                                <td>Time 2 </td>
+                                <td>jogador 1, jogador 2, jogador 3</td>
+                                <td>2 pontos</td>
+                                <td>jogador 1, jogador 2, jogador 3</td>
+                                <td>3 pontos</td>
+                                <td>10:37</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
-        <script src="/js/principal.js"></script>
-        <!-- <script src="/js/principal.js"></script> -->
+        <script src="/js/partida.js"></script>
     </body>
 </html>

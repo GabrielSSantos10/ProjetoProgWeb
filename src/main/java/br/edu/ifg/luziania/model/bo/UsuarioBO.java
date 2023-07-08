@@ -26,13 +26,13 @@ public class UsuarioBO {
 
     public Response autenticar(AutenticacaoDTO autenticacaoDTO){
         RetornoDTO retornoDTO = new RetornoDTO();
+
         if (nonNull(autenticacaoDTO)){
             Usuario usuario = usuarioDAO.getByEmailAndSenha(autenticacaoDTO.getEmail(), autenticacaoDTO.getSenha());
             if (nonNull(usuario)) {
                 retornoDTO.setMensagem("Bem vindo "+usuario.getNome()+"!");
                 sessao.setUsuario(usuario.getNome());
                 return Response.ok(retornoDTO).build();
-                respostaDTO.setUrl("/principal");
             }
             else {
                 retornoDTO.setMensagem("Usuário não encontrado!");

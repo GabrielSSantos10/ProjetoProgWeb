@@ -2,6 +2,9 @@ package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.UsuarioBO;
 import br.edu.ifg.luziania.model.dto.AutenticacaoDTO;
+import br.edu.ifg.luziania.model.dto.RespostaDTO;
+import br.edu.ifg.luziania.model.dto.UsuarioDTO;
+
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -41,6 +44,7 @@ public class LoginController {
     @Path("salvar")
     public Response salvar(UsuarioDTO dto){
         RespostaDTO respostaDTO = usuarioBO.salvar(dto);
+
         return Response
                 .status(respostaDTO.getStatus())
                 .entity(respostaDTO)

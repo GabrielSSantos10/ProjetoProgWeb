@@ -6,29 +6,26 @@ import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("principal")
-public class PrincipalController {
-
+@Path("partida")
+public class PartidaController {
     @Inject
     Sessao sessao;
 
-    private final Template principal;
+    private final Template partida;
 
-    public PrincipalController(Template principal) {
-        this.principal = principal;
+    public PartidaController(Template partida) {
+        this.partida = partida;
     }
-
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance principal(){
-       if (sessao.getUsuario().isEmpty())
-           return ErroTemplates.proibido();
-        return principal.instance();
+    public TemplateInstance partida(){
+//        if (sessao.getUsuario().isEmpty())
+//            return ErroTemplates.proibido();
+        return partida.instance();
     }
-
 }

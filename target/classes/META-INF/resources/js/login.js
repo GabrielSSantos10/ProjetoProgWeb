@@ -67,24 +67,10 @@ function registerUser(){
 
 
 // Login
-function createRequestLogin(email, senha){
-    return new Request("http://localhost:8080/autenticar", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "email": email,
-            "senha": senha
-        }),
-    });
-}
-
 function loginUser(){
     if (validLoginForm()){
         alert("Deu certo")
-        var requisicao = createRequestLogin(document.getElementById("email_login").value, document.getElementById("pass_login").value);
+        var requisicao = createRequestLogin(document.getElementById("email_login").value,document.getElementById("pass_login").value);
         fetch(requisicao)
         .then((response) => {
             if (response.status === 200) {
@@ -102,3 +88,16 @@ function loginUser(){
         alert('Os campos e-mail e senha são obrigatórios! Verifique o formulário.')
 }
 
+function createRequestLogin(email, senha){
+    return new Request("http://localhost:8080/autenticar", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "email": email,
+            "senha": senha
+        }),
+    });
+}
