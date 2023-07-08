@@ -1,0 +1,85 @@
+.header {
+    background-color: #fd7e14;
+    font-size: x-large;
+}
+/*.body{*/
+/*    background-image: url("/images/wallpaper.jpg");*/
+/*}*/
+
+.login {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 3fr;
+    column-gap: 90px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #FFF;
+}
+
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #fd7e14;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.back-to-top i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background: #ff774a;
+    color: #fff;
+}
+
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Formulário de login e cadastro */
+.form-auth {
+    width: 100%;
+    justify-content: center;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+    padding: 60px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #fff;
+    color: black;
+}
+.form-auth .checkbox {
+    margin-top: 16px;
+}
+
+.form-auth .btn-auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-auth > h1,
+.form-auth > h2 {
+    margin-bottom: 16px;
+}
+
+.form-auth .btn-auth .btn-lg {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.form-auth .btn-auth .btn-sm {
+    margin: 8px 60px auto;
+}
