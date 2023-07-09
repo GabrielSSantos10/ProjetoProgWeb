@@ -10,25 +10,21 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-@Path("principal")
-public class PrincipalController {
-
+@Path("estatisticas")
+public class EstatisticaController {
     @Inject
     Sessao sessao;
 
-    private final Template principal;
+    private final Template estatisticas;
 
-    public PrincipalController(Template principal) {
-        this.principal = principal;
+    public EstatisticaController(Template estatisticas) {
+        this.estatisticas = estatisticas;
     }
-
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance principal(){
-       if (sessao.getUsuario().isEmpty())
-           return ErroTemplates.acessoNegado();
-        return principal.instance();
+    public TemplateInstance estatisticas(){
+        if (sessao.getUsuario().isEmpty())
+            return ErroTemplates.acessoNegado();
+        return estatisticas.instance();
     }
-
 }

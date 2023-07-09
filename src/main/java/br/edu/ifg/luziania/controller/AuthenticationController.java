@@ -14,14 +14,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/")
-public class LoginController {
+public class AuthenticationController {
 
     @Inject
     UsuarioBO usuarioBO;
 
     private final Template login;
 
-    public LoginController(Template login) {
+    public AuthenticationController(Template login) {
         this.login = login;
     }
 
@@ -39,6 +39,14 @@ public class LoginController {
     }
 
     @POST
+    @Path("deslogar")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deslogar(){
+        return usuarioBO.deslogar();
+    }
+
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("salvar")
@@ -51,3 +59,4 @@ public class LoginController {
                 .build();
     }
 }
+

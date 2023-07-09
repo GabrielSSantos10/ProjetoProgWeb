@@ -10,25 +10,21 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-@Path("principal")
-public class PrincipalController {
-
+@Path("historicoPartidas")
+public class HistoricoController {
     @Inject
     Sessao sessao;
 
-    private final Template principal;
+    private final Template historicoPartidas;
 
-    public PrincipalController(Template principal) {
-        this.principal = principal;
+    public HistoricoController(Template historicoPartidas) {
+        this.historicoPartidas = historicoPartidas;
     }
-
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance principal(){
-       if (sessao.getUsuario().isEmpty())
-           return ErroTemplates.acessoNegado();
-        return principal.instance();
+    public TemplateInstance historicoPartidas(){
+        if (sessao.getUsuario().isEmpty())
+            return ErroTemplates.acessoNegado();
+        return historicoPartidas.instance();
     }
-
 }

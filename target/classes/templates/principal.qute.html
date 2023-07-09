@@ -60,7 +60,7 @@
             </div>
         </header>
 
-        <!-- Modal -->
+        <!-- Modal Logout -->
         <div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                        <a href="#" class="btn btn-primary">Sim</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="logoutUser()">Sim</button>
                     </div>
                 </div>
             </div>
@@ -98,6 +98,7 @@
 
             </div>
         </section>
+        <script src="/js/login.js"></script>
         <script src="/js/principal.js"></script>
         <!-- <script src="/js/principal.js"></script> -->
     </body>

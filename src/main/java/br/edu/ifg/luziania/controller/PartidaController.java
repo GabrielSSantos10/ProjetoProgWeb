@@ -6,8 +6,8 @@ import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
 import javax.inject.Inject;
-import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -21,11 +21,31 @@ public class PartidaController {
     public PartidaController(Template partida) {
         this.partida = partida;
     }
+
+//    private final Template historicoPartidas;
+
+//    public PartidaController(Template partida, Template historicoPartidas) {
+//        this.partida = partida;
+//        this.historicoPartidas = historicoPartidas;
+//    }
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance partida(){
-//        if (sessao.getUsuario().isEmpty())
-//            return ErroTemplates.proibido();
+        if (sessao.getUsuario().isEmpty())
+            return ErroTemplates.acessoNegado();
         return partida.instance();
     }
+
+//    @GET
+//    @Path("historico")
+//    @Produces(MediaType.TEXT_HTML)
+//    public TemplateInstance historicoPartidas(){
+//        if (sessao.getUsuario().isEmpty())
+//            return ErroTemplates.acessoNegado();
+////        List<PartidaHistoricoDTO> historicos = historicoBO.getHistoricos(){
+////          List<PartidaHistoricoDTO> historicoPartida = dao.getHistoricos(from HistoricoPartida)
+////        };
+////        return historicoPartidas.data("historicos", historicos);
+//        return historicoPartidas.instance();
+//    }
 }

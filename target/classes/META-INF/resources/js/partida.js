@@ -10,12 +10,12 @@ let buttonIniciar = document.getElementById("iniciar-cronometro");
 let buttonPausar = document.getElementById("pausar-cronometro");
 let buttonFinalizar = document.getElementById("finalizar-partida");
 
-let buttonAdd2PontosJogador1Time1 = document.getElementById("add-2-pontos-jogador1-time-1")
-let buttonAdd3PontosJogador1Time1 = document.getElementById("add-3-pontos-jogador1-time-1")
+let buttonAdd2PontosTime1 = document.getElementById("add-2-pontos-time-1")
+let buttonAdd3PontosTime1 = document.getElementById("add-3-pontos-time-1")
 
 
-let buttonAdd2PontosJogador1Time2 = document.getElementById("add-2-pontos-jogador1-time-2")
-let buttonAdd3PontosJogador1Time2 = document.getElementById("add-3-pontos-jogador1-time-2")
+let buttonAdd2PontosTime2 = document.getElementById("add-2-pontos-time-2")
+let buttonAdd3PontosTime2 = document.getElementById("add-3-pontos-time-2")
 
 let buttonRetomar = document.getElementById("retomar-cronometro")
 let resultadoPartida = document.getElementById("resultado-partida")
@@ -156,11 +156,11 @@ function finalizar(){
 }
 
 function desativarBotoes(){
-    buttonAdd2PontosJogador1Time1.disabled = true;
-    buttonAdd3PontosJogador1Time1.disabled = true;
+    buttonAdd2PontosTime1.disabled = true;
+    buttonAdd3PontosTime1.disabled = true;
 
-    buttonAdd2PontosJogador1Time2.disabled = true;
-    buttonAdd3PontosJogador1Time2.disabled = true;
+    buttonAdd2PontosTime2.disabled = true;
+    buttonAdd3PontosTime2.disabled = true;
 }
 
 function cronometro(){

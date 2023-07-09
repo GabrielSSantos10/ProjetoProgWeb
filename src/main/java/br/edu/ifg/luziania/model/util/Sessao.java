@@ -30,4 +30,8 @@ public class Sessao {
     public void setPermissoes(List<String> permissoes) {
         this.permissoes = permissoes;
     }
+
+    public void clearSession() {
+        this.usuario = null;
+    }
 }
