@@ -178,49 +178,63 @@
                 </table>
             </div>
             <div class="card-footer text-body-secondary" style="padding: 30px">
-                <a type="button" onclick="gravarnaapi()" class="btn btn-primary">Continuar</a>
+                <a type="button" href="partida" class="btn btn-primary">Criar nova partida</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Modal: Logout -->
-<div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Tem certeza que deseja sair?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                <a href="#" class="btn btn-primary">Sim</a>
+    <!-- Modal Logout -->
+    <div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja sair?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="logoutUser()">Sim</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal: Finalizar Partida-->
-<div class="modal fade" id="confirmar-finalizar" tabindex="-1" aria-labelledby="confirmarFinalizar" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Finalizar</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal: Finalizar Partida-->
+    <div class="modal fade" id="confirmar-finalizar" tabindex="-1" aria-labelledby="confirmarFinalizar" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="quest_finalizar" class="modal-content" style="display: block">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Finalizar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja finalizar a partida?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="mostrarResultadoPartida()">Sim</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Tem certeza que deseja finalizar a partida?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="mostrarResultadoPartida()">Sim</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            <div id="desempatar" class="modal-content" style="display: none">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Finalizar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>É necessário desempatar a partida</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
     <script src="/js/partida.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>

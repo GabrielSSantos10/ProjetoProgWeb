@@ -22,12 +22,6 @@ public class PartidaController {
         this.partida = partida;
     }
 
-//    private final Template historicoPartidas;
-
-//    public PartidaController(Template partida, Template historicoPartidas) {
-//        this.partida = partida;
-//        this.historicoPartidas = historicoPartidas;
-//    }
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance partida(){
@@ -35,6 +29,13 @@ public class PartidaController {
             return ErroTemplates.acessoNegado();
         return partida.instance();
     }
+
+//    private final Template historicoPartidas;
+
+//    public PartidaController(Template partida, Template historicoPartidas) {
+//        this.partida = partida;
+//        this.historicoPartidas = historicoPartidas;
+//    }
 
 //    @GET
 //    @Path("historico")

@@ -14,7 +14,7 @@ public class ErrosController {
     @GET
     @Path("acesso-negado")
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get() {
+    public TemplateInstance acessoNegado() {
         return ErroTemplates.acessoNegado();
     }
 

@@ -67,6 +67,27 @@ function registerUser(){
 
 
 // Login
+function loginUser(){
+    if (validLoginForm()){
+        alert("Deu certo")
+        var requisicao = createRequestLogin(document.getElementById("email_login").value,document.getElementById("pass_login").value);
+        fetch(requisicao)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    throw new Error("Ocorreu algum erro no servidor!");
+                }
+            })
+            .then(json => {
+                console.log(JSON.stringify(json));
+                alert(json.mensagem);
+                window.location.href = window.location.origin+json.url;
+            });
+    } else
+        alert('Os campos e-mail e senha são obrigatórios! Verifique o formulário.')
+}
+
 function createRequestLogin(email, senha){
     return new Request("http://localhost:8080/autenticar", {
         method: "POST",
@@ -80,29 +101,9 @@ function createRequestLogin(email, senha){
         }),
     });
 }
-function loginUser(){
-    if (validLoginForm()){
-        alert("Deu certo")
-        var requisicaoLogin = createRequestLogin(document.getElementById("email_login").value,document.getElementById("pass_login").value);
-        fetch(requisicaoLogin)
-        .then((response) => {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                throw new Error("Ocorreu algum erro no servidor!");
-            }
-        })
-        .then(json => {
-            console.log(JSON.stringify(json));
-            alert(json.mensagem);
-            window.location.href = window.location.origin+json.url;
-        });
-    } else
-        alert('Os campos e-mail e senha são obrigatórios! Verifique o formulário.')
-}
 
 
-
+//Logout
 function createRequestLogout(){
     return new Request("http://localhost:8080/deslogar", {
         method: "POST",

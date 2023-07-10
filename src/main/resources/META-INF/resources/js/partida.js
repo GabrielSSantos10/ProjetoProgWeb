@@ -36,10 +36,7 @@ let placar = document.getElementById("placar-partida")
 
 let pontuacaopartida = {}
 function mostrarResultadoPartida () {
-    if (pontuacaoTime1 === pontuacaoTime2) {
-        alert('Desempatar partida')
-        return
-    } else if (pontuacaoTime1 > pontuacaoTime2) {
+    if (pontuacaoTime1 > pontuacaoTime2) {
         pontuacaopartida = {
             'time': '1',
             'pontuacao': pontuacaoTime1,
@@ -68,41 +65,41 @@ function mostrarPlacar() {
     desativarBotoes()
 }
 
-function gravarnaapi() {
-    document.getElementById("section_partida").innerHTML = `
-        <div id="historico-partidas" class="col-md-8 mx-auto text-center" style="padding-top: 200px">
-            <h1 class="mb-3 fw-semibold lh-1">Histórico de partidas</h1>
-            <div style="text-align: right">
-                <!-- Não existe essa tela -->
-                <a id="criar-nova-partida" href="partida.html" class="btn btn-primary active" role="button">Criar nova partida</a>
-            </div>
-            <br>
-            <div style="text-align: left">
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col">Data</th>
-                            <th scope="col">Vencedor</th>
-                            <th scope="col">Time 1</th>
-                            <th scope="col">Pontuação</th>
-                            <th scope="col">Time 2</th>
-                            <th scope="col">Pontuação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>18/06/2023 - 15:30</td>
-                            <td>Time: ${pontuacaopartida.time}</td>
-                            <td>jogador 1, jogador 2, jogador 3</td>
-                            <td>${pontuacaoTime1}</td>
-                            <td>jogador 1, jogador 2, jogador 3</td>
-                            <td>${pontuacaoTime2}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>`
-}
+// function gravarnaapi() {
+//     document.getElementById("section_partida").innerHTML = `
+//         <div id="historico-partidas" class="col-md-8 mx-auto text-center" style="padding-top: 200px">
+//             <h1 class="mb-3 fw-semibold lh-1">Histórico de partidas</h1>
+//             <div style="text-align: right">
+//                 <!-- Não existe essa tela -->
+//                 <a id="criar-nova-partida" href="partida.html" class="btn btn-primary active" role="button">Criar nova partida</a>
+//             </div>
+//             <br>
+//             <div style="text-align: left">
+//                 <table class="table">
+//                     <thead class="table-dark">
+//                         <tr>
+//                             <th scope="col">Data</th>
+//                             <th scope="col">Vencedor</th>
+//                             <th scope="col">Time 1</th>
+//                             <th scope="col">Pontuação</th>
+//                             <th scope="col">Time 2</th>
+//                             <th scope="col">Pontuação</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         <tr>
+//                             <td>18/06/2023 - 15:30</td>
+//                             <td>Time: ${pontuacaopartida.time}</td>
+//                             <td>jogador 1, jogador 2, jogador 3</td>
+//                             <td>${pontuacaoTime1}</td>
+//                             <td>jogador 1, jogador 2, jogador 3</td>
+//                             <td>${pontuacaoTime2}</td>
+//                         </tr>
+//                     </tbody>
+//                 </table>
+//             </div>
+//         </div>`
+// }
 
 
 function doisDigitos(digito){
@@ -116,7 +113,7 @@ function doisDigitos(digito){
 
 function iniciar(){
     cronometro();
-    ativarBotoes();
+    ativarBotoes2();
     intervalo= setInterval(cronometro,1000);
     buttonIniciar.style.display = "none";
     buttonPausar.style.display = "grid";
@@ -124,17 +121,17 @@ function iniciar(){
 
 }
 
-function ativarBotoes(){
-    buttonAdd2PontosJogador1Time1.disabled = false;
-    buttonAdd3PontosJogador1Time1.disabled = false;
+function ativarBotoes2(){
+    buttonAdd2PontosTime1.disabled = false;
+    buttonAdd3PontosTime1.disabled = false;
 
-    buttonAdd2PontosJogador1Time2.disabled = false;
-    buttonAdd3PontosJogador1Time2.disabled = false;
+    buttonAdd2PontosTime2.disabled = false;
+    buttonAdd3PontosTime2.disabled = false;
 }
 
 function retomar(){
     cronometro();
-    ativarBotoes();
+    ativarBotoes2();
     intervalo= setInterval(cronometro,1000);
     buttonRetomar.style.display = "none";
     buttonPausar.style.display = "grid";
@@ -148,10 +145,22 @@ function pausar(){
 }
 
 function finalizar(){
-    clearInterval(intervalo);
-    desativarBotoes();
-    buttonPausar.style.display = "none";
-    buttonRetomar.style.display = "grid";
+    if (pontuacaoTime1 === pontuacaoTime2) {
+        document.getElementById("desempatar").style.display = "block";
+        document.getElementById("quest_finalizar").style.display = "none";
+        clearInterval(intervalo);
+        desativarBotoes();
+        buttonPausar.style.display = "none";
+        buttonRetomar.style.display = "grid";
+        return
+    }else{
+        document.getElementById("desempatar").style.display = "none";
+        document.getElementById("quest_finalizar").style.display = "block";
+        clearInterval(intervalo);
+        desativarBotoes();
+        buttonPausar.style.display = "none";
+        buttonRetomar.style.display = "grid";
+    }
 
 }
 

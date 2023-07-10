@@ -60,9 +60,9 @@
             </div>
         </header>
 
-        <!-- Modal -->
+        <!-- Modal Logout -->
         <div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                        <a href="#" class="btn btn-primary">Sim</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="logoutUser()">Sim</button>
                     </div>
                 </div>
             </div>
@@ -109,32 +109,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card text-bg-dark mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total de cestas</h5>
-                                <h1 id="total-cestas">10</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-bg-dark mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Cestas de 2 pontos</h5>
-                                <h1 id="cestas-2-pontos">10</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-bg-dark mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Cestas de 3 pontos</h5>
-                                <h1 id="cestas-3-pontos">10</h1>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
+        <script src="/js/login.js"></script>
     </body>
 </html>

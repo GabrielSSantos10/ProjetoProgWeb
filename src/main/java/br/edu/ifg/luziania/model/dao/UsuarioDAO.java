@@ -25,14 +25,14 @@ public class UsuarioDAO {
 //    }
 
     public Usuario getByEmailAndSenha(String email, String senha){
-        Query query = em.createQuery("from user where emailUser = :email and passUser = :senha");
+        Query query = em.createQuery("from Usuario as user where user.email = :email and user.senha = :senha");
         query.setParameter("email", email);
         query.setParameter("senha", senha);
         return (Usuario) query.getSingleResult();
     }
 
     public List<Usuario> getAllUsuario(){
-        Query query = em.createQuery("from user");
+        Query query = em.createQuery("from Usuario");
         return (List<Usuario>) query.getResultList();
     }
 
