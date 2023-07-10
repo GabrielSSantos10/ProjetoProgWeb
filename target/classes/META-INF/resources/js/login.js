@@ -46,7 +46,6 @@ function createRequestRegister(dto){
 
 function registerUser(){
     if (validRegisterForm()){
-        alert("Deu certo")
         var dto = getUserDTO();
         var requisicao = createRequestRegister(dto);
         fetch(requisicao)
@@ -69,7 +68,6 @@ function registerUser(){
 // Login
 function loginUser(){
     if (validLoginForm()){
-        alert("Deu certo")
         var requisicao = createRequestLogin(document.getElementById("email_login").value,document.getElementById("pass_login").value);
         fetch(requisicao)
             .then((response) => {
@@ -118,7 +116,6 @@ function createRequestLogout(){
 }
 
 function logoutUser(){
-    alert("Deu certo")
     var requisicao = createRequestLogout();
     fetch(requisicao)
         .then((response) => {

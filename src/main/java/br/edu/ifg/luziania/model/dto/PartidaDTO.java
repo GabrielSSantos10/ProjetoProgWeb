@@ -16,4 +16,6 @@ public class PartidaDTO {
     @Getter @Setter private String pontosTime2;
     @Getter @Setter private int timeVencedor;
 
+
+
 }

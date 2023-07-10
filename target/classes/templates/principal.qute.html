@@ -17,48 +17,46 @@
                 integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="/css/login.css">
-
-        <!-- <script src="/js/principal.js"></script> -->
     </head>
     <body>
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container d-flex align-items-center justify-content-between">
-                <div class="logo">
-                    <a class="navbar-brand" href="principal"><img src="/images/Logo.png" class="img-fluid"></a>
+              <div class="logo">
+                <a class="navbar-brand" href="principal"><img src="/images/Logo.png" class="img-fluid"></a>
+              </div>
+              <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li id="home-nav" class="nav-item">
+                        <a class="nav-link" style="color: white;" href="principal">Home</a>
+                      </li>
+                      <li id="estatisticas-nav" class="nav-item">
+                        <a class="nav-link" style="color: white;" href="estatisticas">Estatísticas</a>
+                      </li>
+                      <li id="partida-nav" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Partida</a>
+                        <ul class="dropdown-menu">
+                          <li><a id="criar-partida-nav" class="dropdown-item" href="partida">Criar partida</a></li>
+                          <li><a id="historico-partida-nav" class="dropdown-item" href="historicoPartidas">Histórico</a></li>
+                        </ul>
+                      </li>
+                      <li id="admin-nav" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Administração</a>
+                        <ul class="dropdown-menu">
+                          <li><a id="logs-nav" class="dropdown-item" href="logs">Logs</a></li>
+                          <li><a id="perfis-nav" class="dropdown-item" href="perfis">Perfis</a></li>
+                        </ul>
+                      </li>
+                      <li id="logout-nav" class="nav-item">
+                        <a data-bs-toggle="modal" href="#confirmar-logout" class="scrollto nav-link"><img src="/images/logout.png" class="img-fluid" width="25" height="25"></a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li id="estatisticas-nav" class="nav-item">
-                                    <a class="nav-link active" href="estatisticas">Estatísticas</a>
-                                </li>
-                                <li id="partida-nav" class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Partida</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a id="criar-partida-nav" class="dropdown-item" href="partida">Criar partida</a></li>
-                                        <li><a id="historico-partida-nav" class="dropdown-item" href="historicoPartidas">Histórico</a></li>
-                                    </ul>
-                                </li>
-                                <!-- <li id="assinar-premium-nav" class="nav-item">
-                                    <a class="nav-link active" href="#">Assinar Premium</a>
-                                </li> -->
-                                <li id="admin-nav" class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administração</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a id="logs-nav" class="dropdown-item" href="logs">Logs</a></li>
-                                        <li><a id="perfis-nav" class="dropdown-item" href="perfis">Perfis</a></li>
-                                    </ul>
-                                </li>
-                                <li id="logout-nav" class="nav-item">
-                                    <a data-bs-toggle="modal" href="#confirmar-logout" class="scrollto nav-link active"><img src="/images/logout.png" class="img-fluid" width="25" height="25"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+              </nav>
             </div>
-        </header>
+          </header>
 
         <!-- Modal Logout -->
         <div class="modal fade" id="confirmar-logout" tabindex="-1" aria-labelledby="confirmarLogout" aria-hidden="true">
@@ -79,7 +77,6 @@
             </div>
         </div>
 
-
         <section style="padding-top: 120px;">
 
             <div class="col-md-8 mx-auto text-center" style="padding-top: 200px">
@@ -91,15 +88,15 @@
                 </p>
                 <div class="d-flex flex-column flex-lg-row align-items-md-stretch justify-content-md-center gap-3 mb-4">
                     <div class="d-inline-block v-align-middle fs-5">
-                        <a href="estatisticas" type="button" class="btn btn-primary btn-lg" style="background-color: #fd7e14;border: white;">Ver estatísticas</a>
-                        <a href="partida" type="button" class="btn btn-primary btn-lg" style="background-color: #fd7e14;border: white;">Criar partida</a>
+                        <a href="estatisticas" type="button" class="btn btn-primary btn-lg" style="background-color: #2f302d; border: white;">Ver estatísticas</a>
+                        <a href="partida" type="button" class="btn btn-primary btn-lg" style="background-color: #2f302d; border: white;">Criar partida</a>
                     </div>
                 </div>
 
             </div>
         </section>
+
         <script src="/js/login.js"></script>
         <script src="/js/principal.js"></script>
-        <!-- <script src="/js/principal.js"></script> -->
     </body>
 </html>

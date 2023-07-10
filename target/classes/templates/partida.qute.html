@@ -21,46 +21,43 @@
     </head>
     <body>
         <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="logo">
+            <div class="container d-flex align-items-center justify-content-between">
+              <div class="logo">
                 <a class="navbar-brand" href="principal"><img src="/images/Logo.png" class="img-fluid"></a>
-            </div>
-            <nav class="navbar navbar-expand-lg">
+              </div>
+              <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li id="home-nav" class="nav-item">
-                                <a class="nav-link active" href="principal">Home</a>
-                            </li>
-                            <li id="estatisticas-nav" class="nav-item">
-                                <a class="nav-link active" href="estatisticas">Estatísticas</a>
-                            </li>
-                            <li id="partida-nav" class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Partida</a>
-                                <ul class="dropdown-menu">
-                                    <li><a id="criar-partida-nav" class="dropdown-item" href="partida">Criar partida</a></li>
-                                    <li><a id="historico-partida-nav" class="dropdown-item" href="historicoPartidas">Histórico</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li id="assinar-premium-nav" class="nav-item">
-                                <a class="nav-link active" href="#">Assinar Premium</a>
-                            </li> -->
-                            <li id="admin-nav" class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administração</a>
-                                <ul class="dropdown-menu">
-                                    <li><a id="logs-nav" class="dropdown-item" href="logs">Logs</a></li>
-                                    <li><a id="perfis-nav" class="dropdown-item" href="perfis">Perfis</a></li>
-                                </ul>
-                            </li>
-                            <li id="logout-nav" class="nav-item">
-                                <a data-bs-toggle="modal" href="#confirmar-logout" class="scrollto nav-link active"><img src="/images/logout.png" class="img-fluid" width="25" height="25"></a>
-                            </li>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li id="home-nav" class="nav-item">
+                        <a class="nav-link" style="color: white;" href="principal">Home</a>
+                      </li>
+                      <li id="estatisticas-nav" class="nav-item">
+                        <a class="nav-link" style="color: white;" href="estatisticas">Estatísticas</a>
+                      </li>
+                      <li id="partida-nav" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Partida</a>
+                        <ul class="dropdown-menu">
+                          <li><a id="criar-partida-nav" class="dropdown-item" href="partida">Criar partida</a></li>
+                          <li><a id="historico-partida-nav" class="dropdown-item" href="historicoPartidas">Histórico</a></li>
                         </ul>
-                    </div>
+                      </li>
+                      <li id="admin-nav" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Administração</a>
+                        <ul class="dropdown-menu">
+                          <li><a id="logs-nav" class="dropdown-item" href="logs">Logs</a></li>
+                          <li><a id="perfis-nav" class="dropdown-item" href="perfis">Perfis</a></li>
+                        </ul>
+                      </li>
+                      <li id="logout-nav" class="nav-item">
+                        <a data-bs-toggle="modal" href="#confirmar-logout" class="scrollto nav-link"><img src="/images/logout.png" class="img-fluid" width="25" height="25"></a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-            </nav>
-        </div>
-    </header>
+              </nav>
+            </div>
+        </header>
 
         <section id="section_partida" style="padding: 200px;">
             <!-- Tela de criar a partida -->
@@ -215,8 +212,8 @@
                         <p>Tem certeza que deseja finalizar a partida?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="mostrarResultadoPartida()">Sim</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="mostrarResultadoPartida()">Sim</button>
                     </div>
                 </div>
                 <div id="desempatar" class="modal-content" style="display: none">

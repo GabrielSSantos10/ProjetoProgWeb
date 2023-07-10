@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Gabriel e Vitória">
+  <meta name="author" content="Gabriel">
 
   <title>Scorefy</title>
 
@@ -28,28 +28,28 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="home-nav" class="nav-item">
+                <a class="nav-link" style="color: white;" href="principal">Home</a>
+              </li>
               <li id="estatisticas-nav" class="nav-item">
-                <a class="nav-link active" href="estatisticas">Estatísticas</a>
+                <a class="nav-link" style="color: white;" href="estatisticas">Estatísticas</a>
               </li>
               <li id="partida-nav" class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Partida</a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Partida</a>
                 <ul class="dropdown-menu">
                   <li><a id="criar-partida-nav" class="dropdown-item" href="partida">Criar partida</a></li>
                   <li><a id="historico-partida-nav" class="dropdown-item" href="historicoPartidas">Histórico</a></li>
                 </ul>
               </li>
-              <!-- <li id="assinar-premium-nav" class="nav-item">
-                  <a class="nav-link active" href="#">Assinar Premium</a>
-              </li> -->
               <li id="admin-nav" class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administração</a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Administração</a>
                 <ul class="dropdown-menu">
                   <li><a id="logs-nav" class="dropdown-item" href="logs">Logs</a></li>
                   <li><a id="perfis-nav" class="dropdown-item" href="perfis">Perfis</a></li>
                 </ul>
               </li>
               <li id="logout-nav" class="nav-item">
-                <a data-bs-toggle="modal" href="#confirmar-logout" class="scrollto nav-link active"><img src="/images/logout.png" class="img-fluid" width="25" height="25"></a>
+                <a data-bs-toggle="modal" href="#confirmar-logout" class="scrollto nav-link"><img src="/images/logout.png" class="img-fluid" width="25" height="25"></a>
               </li>
             </ul>
           </div>
