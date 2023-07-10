@@ -94,7 +94,7 @@ function mostrarResultadoPartida () {
             "timeVencedor":timeVencedor
         }
     } else {
-        timeVencedor= 2;
+        timeVencedor = 2;
         pontuacaopartida = {
             "nomeJogador1Time1":jogador1Time1.value,
             "nomeJogador2Time1":jogador2Time1.value,
@@ -107,7 +107,7 @@ function mostrarResultadoPartida () {
             "timeVencedor":timeVencedor
         }
     }
-    document.getElementById("resultado_time_ganhador").innerText = pontuacaopartida.time
+    document.getElementById("resultado_time_ganhador").innerText = pontuacaopartida.timeVencedor
     document.getElementById("resultado_pontuacao_time1").innerText = pontuacaoTime1
     document.getElementById("resultado_pontuacao_time2").innerText = pontuacaoTime2
 
@@ -139,7 +139,6 @@ function mostrarPlacar() {
 //                 <table class="table">
 //                     <thead class="table-dark">
 //                         <tr>
-//                             <th scope="col">Data</th>
 //                             <th scope="col">Vencedor</th>
 //                             <th scope="col">Time 1</th>
 //                             <th scope="col">Pontuação</th>

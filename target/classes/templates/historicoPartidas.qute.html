@@ -81,32 +81,38 @@
         <section style="padding-top: 100px;">
             <div id="historico-partidas" class="col-md-8 mx-auto text-center" style="padding-top: 200px">
                 <h1 class="mb-3 fw-semibold lh-1">Histórico de partidas</h1>
-                <div style="text-align: right">
-                    <!-- Não existe essa tela -->
-                    <a id="criar-nova-partida" href="/criarPartida" class="btn btn-primary active" role="button">Criar nova partida</a>
-                </div>
                 <br>
                 <div style="text-align: left">
                     <table class="table">
                         <thead class="table-dark">
-                            <tr>
-                                <th scope="col">Data</th>
-                                <th scope="col">Vencedor</th>
-                                <th scope="col" colspan="2">Time 1</th>
-                                <th scope="col" colspan="2">Time 2</th>
-                                <th scope="col">Duração</th>
-                            </tr>
+                        <tr>
+                            <th scope="col">Time Vencedor</th>
+                            <th scope="col">Time 1</th>
+                            <th scope="col">Pontuação</th>
+                            <th scope="col">Time 2</th>
+                            <th scope="col">Pontuação</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>18/06/2023 - 15:30</td>
-                                <td>Time 2 </td>
-                                <td>jogador 1, jogador 2, jogador 3</td>
-                                <td>2 pontos</td>
-                                <td>jogador 1, jogador 2, jogador 3</td>
-                                <td>3 pontos</td>
-                                <td>10:37</td>
-                            </tr>
+                        <tr>
+                            {#for partida in partida}
+                                <td>{partida.getTimeVencedor() ?: ''}</td>
+                                <td>{partida.getNomeJogador1Time1() ?: ''
+                                    partida.getNomeJogador2Time1() ?: ''
+                                    partida.getNomeJogador3Time1() ?: ''}</td>
+                                <td>{partida.getPontosTime1() ?: ''}</td>
+                                <td>{partida.getNomeJogador1Time2() ?: ''
+                                    partida.getNomeJogador2Time2() ?: ''
+                                    partida.getNomeJogador3Time2() ?: ''}</td>
+                                <td>{partida.getPontosTime2:() ''}</td>
+                            {/for}
+                            {!<td>18/06/2023 - 15:30</td>!}
+                            {!<td>Time: ${pontuacaopartida}</td>!}
+                            {!<td>jogador 1, jogador 2, jogador 3</td>!}
+                            {!<td>${pontuacaoTime1}</td>!}
+                            {!<td>jogador 1, jogador 2, jogador 3</td>!}
+                            {!<td>${pontuacaoTime2}</td>!}
+                        </tr>
                         </tbody>
                     </table>
                 </div>

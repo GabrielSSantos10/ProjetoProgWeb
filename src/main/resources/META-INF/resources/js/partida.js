@@ -29,15 +29,6 @@ let jogador2Time2 = document.getElementById("jogador2-time2")
 let jogador3Time2 = document.getElementById("jogador3-time2")
 let timeVencedor
 
-// let dados_api_jogadores = []
-// dados_api_jogadores = [{
-//     'time': '1',
-//     'jogador1': 'nomejogador1',
-// }, {
-//     'time': '2',
-//     'jogador1': 'nomejogador1',
-// } ]
-//fazer um map com o json da API para criar a lista dos logs
 
 function createRequestPartida(j1T1, j2T1, j3T1, j1T2, j2T2, j3T2, pT1, pT2, tV){
     return new Request("http://localhost:8080/partida/salvarPartida", {
@@ -61,7 +52,6 @@ function createRequestPartida(j1T1, j2T1, j3T1, j1T2, j2T2, j3T2, pT1, pT2, tV){
 }
 
 function savePartida(){
-    alert("Deu certo")
     var requisicao = createRequestPartida(jogador1Time1.value, jogador2Time1.value, jogador3Time1.value, jogador1Time2.value, jogador2Time2.value, jogador3Time2.value, pontuacaoTime1, pontuacaoTime2, timeVencedor);
     fetch(requisicao)
         .then((response) => {
@@ -78,8 +68,8 @@ function savePartida(){
         });
 }
 
-let pontuacaopartida = {}
 function mostrarResultadoPartida () {
+    let pontuacaopartida = {}
     if (pontuacaoTime1 > pontuacaoTime2) {
         timeVencedor = 1;
         pontuacaopartida = {
@@ -94,7 +84,7 @@ function mostrarResultadoPartida () {
             "timeVencedor":timeVencedor
         }
     } else {
-        timeVencedor= 2;
+        timeVencedor = 2;
         pontuacaopartida = {
             "nomeJogador1Time1":jogador1Time1.value,
             "nomeJogador2Time1":jogador2Time1.value,
@@ -107,7 +97,7 @@ function mostrarResultadoPartida () {
             "timeVencedor":timeVencedor
         }
     }
-    document.getElementById("resultado_time_ganhador").innerText = pontuacaopartida.time
+    document.getElementById("resultado_time_ganhador").innerText = pontuacaopartida.timeVencedor
     document.getElementById("resultado_pontuacao_time1").innerText = pontuacaoTime1
     document.getElementById("resultado_pontuacao_time2").innerText = pontuacaoTime2
 
@@ -116,7 +106,6 @@ function mostrarResultadoPartida () {
     placar.style.display = "none"
     resultadoPartida.style.display = "grid"
     savePartida();
-    
 }
 
 function mostrarPlacar() {
@@ -125,43 +114,6 @@ function mostrarPlacar() {
     resultadoPartida.style.display = "none";
     desativarBotoes()
 }
-
-// function gravarnaapi() {
-//     document.getElementById("section_partida").innerHTML = `
-//         <div id="historico-partidas" class="col-md-8 mx-auto text-center" style="padding-top: 200px">
-//             <h1 class="mb-3 fw-semibold lh-1">Histórico de partidas</h1>
-//             <div style="text-align: right">
-//                 <!-- Não existe essa tela -->
-//                 <a id="criar-nova-partida" href="partida.html" class="btn btn-primary active" role="button">Criar nova partida</a>
-//             </div>
-//             <br>
-//             <div style="text-align: left">
-//                 <table class="table">
-//                     <thead class="table-dark">
-//                         <tr>
-//                             <th scope="col">Data</th>
-//                             <th scope="col">Vencedor</th>
-//                             <th scope="col">Time 1</th>
-//                             <th scope="col">Pontuação</th>
-//                             <th scope="col">Time 2</th>
-//                             <th scope="col">Pontuação</th>
-//                         </tr>
-//                     </thead>
-//                     <tbody>
-//                         <tr>
-//                             <td>18/06/2023 - 15:30</td>
-//                             <td>Time: ${pontuacaopartida.time}</td>
-//                             <td>jogador 1, jogador 2, jogador 3</td>
-//                             <td>${pontuacaoTime1}</td>
-//                             <td>jogador 1, jogador 2, jogador 3</td>
-//                             <td>${pontuacaoTime2}</td>
-//                         </tr>
-//                     </tbody>
-//                 </table>
-//             </div>
-//         </div>`
-// }
-
 
 function doisDigitos(digito){
     if(digito<10){
@@ -261,3 +213,47 @@ function adicionar3PontosTime2(){
     document.getElementById(`pontuacao-time-2`).innerText=pontuacaoTime2;
 }
 
+// let dados_api_jogadores = []
+// dados_api_jogadores = [{
+//     'time': '1',
+//     'jogador1': 'nomejogador1',
+// }, {
+//     'time': '2',
+//     'jogador1': 'nomejogador1',
+// } ]
+//fazer um map com o json da API para criar a lista dos logs
+
+// function gravarnaapi() {
+//     document.getElementById("section_partida").innerHTML = `
+//         <div id="historico-partidas" class="col-md-8 mx-auto text-center" style="padding-top: 200px">
+//             <h1 class="mb-3 fw-semibold lh-1">Histórico de partidas</h1>
+//             <div style="text-align: right">
+//                 <!-- Não existe essa tela -->
+//                 <a id="criar-nova-partida" href="partida.html" class="btn btn-primary active" role="button">Criar nova partida</a>
+//             </div>
+//             <br>
+//             <div style="text-align: left">
+//                 <table class="table">
+//                     <thead class="table-dark">
+//                         <tr>
+//                             <th scope="col">Vencedor</th>
+//                             <th scope="col">Time 1</th>
+//                             <th scope="col">Pontuação</th>
+//                             <th scope="col">Time 2</th>
+//                             <th scope="col">Pontuação</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         <tr>
+//                             <td>18/06/2023 - 15:30</td>
+//                             <td>Time: ${pontuacaopartida.time}</td>
+//                             <td>jogador 1, jogador 2, jogador 3</td>
+//                             <td>${pontuacaoTime1}</td>
+//                             <td>jogador 1, jogador 2, jogador 3</td>
+//                             <td>${pontuacaoTime2}</td>
+//                         </tr>
+//                     </tbody>
+//                 </table>
+//             </div>
+//         </div>`
+// }

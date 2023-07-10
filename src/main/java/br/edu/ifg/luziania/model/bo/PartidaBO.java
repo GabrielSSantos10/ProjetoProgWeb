@@ -8,12 +8,34 @@ import br.edu.ifg.luziania.model.entity.Partida;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.ws.rs.core.Response;
+
+import java.util.List;
+
+import static java.util.Objects.nonNull;
 
 @Dependent
 public class PartidaBO {
 
     @Inject
     PartidaDAO partidaDAO;
+
+    public Response listarAll(PartidaDTO dto){
+        RespostaDTO respostaDTO = new RespostaDTO();
+
+        if (nonNull(dto)){
+            List<Partida> partida = partidaDAO.getAllPartidas();
+            if (nonNull(partida)) {
+                return Response.ok(respostaDTO).build();
+            }
+            else {
+                return Response.status(Response.Status.NOT_FOUND).entity(respostaDTO).build();
+            }
+
+        }else {
+            return Response.status(Response.Status.BAD_REQUEST).entity(respostaDTO).build();
+        }
+    }
 
     @Transactional
     public RespostaDTO salvarPartida(PartidaDTO dto) {
