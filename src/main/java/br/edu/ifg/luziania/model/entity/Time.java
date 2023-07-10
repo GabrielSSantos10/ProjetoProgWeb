@@ -1,40 +1,16 @@
 package br.edu.ifg.luziania.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
+@Table(name = "TB_TIME")
 public class Time {
-
+    //Atributos dos time
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTime;
+    @Getter private int idTime;
 
-    @Column(nullable = false)
-    //private List<Usuario> jogadores;
-    private int pontosTime;
-
-    public int getIdTime() {
-        return idTime;
-    }
-
-    public void setIdTime(int idTime) {
-        this.idTime = idTime;
-    }
-
-//    public List<Usuario> getJogadores() {
-//        return jogadores;
-//    }
-//
-//    public void setJogadores(List<Usuario> jogadores) {
-//        this.jogadores = jogadores;
-//    }
-
-    public int getPontosTime() {
-        return pontosTime;
-    }
-
-    public void setPontosTime(int pontosTime) {
-        this.pontosTime = pontosTime;
-    }
 }

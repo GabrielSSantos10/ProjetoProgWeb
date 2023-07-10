@@ -13,7 +13,6 @@ let buttonFinalizar = document.getElementById("finalizar-partida");
 let buttonAdd2PontosTime1 = document.getElementById("add-2-pontos-time-1")
 let buttonAdd3PontosTime1 = document.getElementById("add-3-pontos-time-1")
 
-
 let buttonAdd2PontosTime2 = document.getElementById("add-2-pontos-time-2")
 let buttonAdd3PontosTime2 = document.getElementById("add-3-pontos-time-2")
 
@@ -22,8 +21,15 @@ let resultadoPartida = document.getElementById("resultado-partida")
 let criarPartida = document.getElementById("criar-partida")
 let placar = document.getElementById("placar-partida")
 
-// let dados_api_jogadores = []
+let jogador1Time1 = document.getElementById("jogador1-time1")
+let jogador2Time1 = document.getElementById("jogador2-time1")
+let jogador3Time1 = document.getElementById("jogador3-time1")
+let jogador1Time2 = document.getElementById("jogador1-time2")
+let jogador2Time2 = document.getElementById("jogador2-time2")
+let jogador3Time2 = document.getElementById("jogador3-time2")
+let timeVencedor
 
+// let dados_api_jogadores = []
 // dados_api_jogadores = [{
 //     'time': '1',
 //     'jogador1': 'nomejogador1',
@@ -31,20 +37,74 @@ let placar = document.getElementById("placar-partida")
 //     'time': '2',
 //     'jogador1': 'nomejogador1',
 // } ]
-
 //fazer um map com o json da API para criar a lista dos logs
+
+function createRequestPartida(j1T1, j2T1, j3T1, j1T2, j2T2, j3T2, pT1, pT2, tV){
+    return new Request("http://localhost:8080/partida/salvarPartida", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "nomeJogador1Time1":j1T1,
+            "nomeJogador2Time1":j2T1,
+            "nomeJogador3Time1":j3T1,
+            "nomeJogador1Time2":j1T2,
+            "nomeJogador2Time2":j2T2,
+            "nomeJogador3Time2":j3T2,
+            "pontosTime1":pT1,
+            "pontosTime2":pT2,
+            "timeVencedor":tV
+        }),
+    });
+}
+
+function savePartida(){
+    alert("Deu certo")
+    var requisicao = createRequestPartida(jogador1Time1.value, jogador2Time1.value, jogador3Time1.value, jogador1Time2.value, jogador2Time2.value, jogador3Time2.value, pontuacaoTime1, pontuacaoTime2, timeVencedor);
+    fetch(requisicao)
+        .then((response) => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error("Ocorreu algum erro no servidor!");
+            }
+        })
+        .then(json => {
+            console.log(JSON.stringify(json));
+            alert(json.mensagem);
+            window.location.href = window.location.origin+json.url;
+        });
+}
 
 let pontuacaopartida = {}
 function mostrarResultadoPartida () {
     if (pontuacaoTime1 > pontuacaoTime2) {
+        timeVencedor = 1;
         pontuacaopartida = {
-            'time': '1',
-            'pontuacao': pontuacaoTime1,
+            "nomeJogador1Time1":jogador1Time1.value,
+            "nomeJogador2Time1":jogador2Time1.value,
+            "nomeJogador3Time1":jogador3Time1.value,
+            "nomeJogador1Time2":jogador1Time2.value,
+            "nomeJogador2Time2":jogador2Time2.value,
+            "nomeJogador3Time2":jogador3Time2.value,
+            "pontosTime1":pontuacaoTime1,
+            "pontosTime2":pontuacaoTime2,
+            "timeVencedor":timeVencedor
         }
     } else {
+        timeVencedor= 2;
         pontuacaopartida = {
-            'time': '2',
-            'pontuacao': pontuacaoTime2,
+            "nomeJogador1Time1":jogador1Time1.value,
+            "nomeJogador2Time1":jogador2Time1.value,
+            "nomeJogador3Time1":jogador3Time1.value,
+            "nomeJogador1Time2":jogador1Time2.value,
+            "nomeJogador2Time2":jogador2Time2.value,
+            "nomeJogador3Time2":jogador3Time2.value,
+            "pontosTime1":pontuacaoTime1,
+            "pontosTime2":pontuacaoTime2,
+            "timeVencedor":timeVencedor
         }
     }
     document.getElementById("resultado_time_ganhador").innerText = pontuacaopartida.time
@@ -55,6 +115,7 @@ function mostrarResultadoPartida () {
     criarPartida.style.display = "none"
     placar.style.display = "none"
     resultadoPartida.style.display = "grid"
+    savePartida();
     
 }
 
@@ -109,7 +170,6 @@ function doisDigitos(digito){
         return(digito)
     }
 }
-
 
 function iniciar(){
     cronometro();

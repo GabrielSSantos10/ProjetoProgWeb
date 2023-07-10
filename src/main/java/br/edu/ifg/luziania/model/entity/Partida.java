@@ -1,34 +1,25 @@
 package br.edu.ifg.luziania.model.entity;
 
-import br.edu.ifg.luziania.model.entity.Usuario;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.List;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "TB_PARTIDA")
 public class Partida {
-
+    //Atributos da partida
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPartida;
-    //private List<Time> times;
+    @Getter private int idPartida;
+    @Getter @Setter private String nomeJogador1Time1;
+    @Getter @Setter private String nomeJogador2Time1;
+    @Getter @Setter private String nomeJogador3Time1;
+    @Getter @Setter private String nomeJogador1Time2;
+    @Getter @Setter private String nomeJogador2Time2;
+    @Getter @Setter private String nomeJogador3Time2;
+    @Getter @Setter private String pontosTime1;
+    @Getter @Setter private String pontosTime2;
+    @Getter @Setter private int timeVencedor;
 
-    public int getIdPartida() {
-        return idPartida;
-    }
-
-    public void setIdPartida(int idPartida) {
-        this.idPartida = idPartida;
-    }
-
-//    public List<Time> getTimes() {
-//        return times;
-//    }
-//
-//    public void setTimes(List<Time> times) {
-//        this.times = times;
-//    }
 }

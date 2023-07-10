@@ -1,19 +1,19 @@
 package br.edu.ifg.luziania.model.dto;
 
-import br.edu.ifg.luziania.model.entity.Time;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
 
 public class PartidaDTO {
 
-    private List<Time> times;
-
-    public List<Time> getTimes() {
-        return times;
-    }
-
-    public void setTimes(List<Time> times) {
-        this.times = times;
-    }
+    @Getter @Setter private String nomeJogador1Time1;
+    @Getter @Setter private String nomeJogador2Time1;
+    @Getter @Setter private String nomeJogador3Time1;
+    @Getter @Setter private String nomeJogador1Time2;
+    @Getter @Setter private String nomeJogador2Time2;
+    @Getter @Setter private String nomeJogador3Time2;
+    @Getter @Setter private String pontosTime1;
+    @Getter @Setter private String pontosTime2;
+    @Getter @Setter private int timeVencedor;
 
 }

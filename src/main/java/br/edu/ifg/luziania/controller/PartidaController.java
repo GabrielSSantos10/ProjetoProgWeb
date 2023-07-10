@@ -1,20 +1,27 @@
 package br.edu.ifg.luziania.controller;
 
+import br.edu.ifg.luziania.model.bo.PartidaBO;
+import br.edu.ifg.luziania.model.bo.UsuarioBO;
+import br.edu.ifg.luziania.model.dto.PartidaDTO;
+import br.edu.ifg.luziania.model.dto.RespostaDTO;
+import br.edu.ifg.luziania.model.dto.UsuarioDTO;
 import br.edu.ifg.luziania.model.util.ErroTemplates;
 import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("partida")
 public class PartidaController {
     @Inject
     Sessao sessao;
+
+    @Inject
+    PartidaBO partidaBO;
 
     private final Template partida;
 
@@ -29,6 +36,20 @@ public class PartidaController {
             return ErroTemplates.acessoNegado();
         return partida.instance();
     }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("salvarPartida")
+    public Response salvarPartida(PartidaDTO dto){
+        RespostaDTO respostaDTO = partidaBO.salvarPartida(dto);
+
+        return Response
+                .status(respostaDTO.getStatus())
+                .entity(respostaDTO)
+                .build();
+    }
+}
 
 //    private final Template historicoPartidas;
 
@@ -49,4 +70,4 @@ public class PartidaController {
 ////        return historicoPartidas.data("historicos", historicos);
 //        return historicoPartidas.instance();
 //    }
-}
+
